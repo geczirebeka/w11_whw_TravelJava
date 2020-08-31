@@ -2,6 +2,7 @@ package flight;
 
 import passenger.Passenger;
 import plane.Plane;
+import plane.PlaneType;
 
 import java.util.ArrayList;
 
@@ -45,5 +46,15 @@ public class Flight {
 
     public String getDepartureTime() {
         return departureTime;
+    }
+
+    public int getAvailableSeats() {
+        return this.plane.getCapacity() - getPassengers();
+    }
+
+    public void addPassenger(Passenger passenger) {
+        if (this.plane.getCapacity() > getPassengers()) {
+            this.passengers.add(passenger);
+        }
     }
 }

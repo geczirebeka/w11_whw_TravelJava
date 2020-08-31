@@ -29,12 +29,10 @@ public class FlightTest {
         assertEquals(1, flight.getPassengers());
     }
 
-//    @Test
-//    public void hasPlane() {
-//        Plane expected = new Plane(PlaneType.BOEING747);
-//        Plane actual = flight.getPlane();
-//        assertEquals(expected, actual);
-//    }
+    @Test
+    public void hasPlane() {
+        assertEquals(plane, flight.getPlane());
+    }
     @Test
     public void hasFlightNumber() {
         assertEquals("FA586", flight.getFlightNumber());
@@ -53,6 +51,17 @@ public class FlightTest {
     @Test
     public void hasDepartureTime() {
         assertEquals("12:30", flight.getDepartureTime());
+    }
+
+    @Test
+    public void hasAvailableSeats() {
+        assertEquals(299, flight.getAvailableSeats());
+    }
+
+    @Test
+    public void canBookPassenger() {
+        flight.addPassenger(passenger);
+        assertEquals(2, flight.getPassengers());
     }
 
 }
